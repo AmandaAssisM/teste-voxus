@@ -29,7 +29,7 @@ def test_se_categoria_nao_existir(client):
 
 
 def test_deveria_pegar_piada_aleatoria_por_filtro(client):
-    resultado = client.get("/api/jokes/filter?query=house&limit=2")
+    resultado = client.get("/api/jokes/filter?search=house&limit=2")
     dados = resultado.json().get("resultado")
 
     assert resultado.status_code == 200
@@ -37,7 +37,7 @@ def test_deveria_pegar_piada_aleatoria_por_filtro(client):
 
 
 def test_deveria_pegar_piada_aleatoria_por_filtro_sem_limit(client):
-    resultado = client.get("/api/jokes/filter?query=house")
+    resultado = client.get("/api/jokes/filter?search=house")
     dados = resultado.json().get("resultado")
 
     assert resultado.status_code == 200
