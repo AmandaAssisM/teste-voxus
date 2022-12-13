@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  app:
+    hostname: teste-pratico-voxus-app.com
+    container_name: teste_pratico_voxus_app
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "8001:8001"
+    command: bash -c "python -m teste_pratico_voxus.server"
+  
